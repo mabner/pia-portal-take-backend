@@ -5,7 +5,8 @@ const { User } = require('./app/models');
 
 const app = express();
 
-app.use(express.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 User.create({
 	name: 'Marcos',
