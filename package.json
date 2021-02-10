@@ -1,0 +1,28 @@
+{
+  "name": "pia-portal-take-backend",
+  "version": "1.0.0",
+  "description": "Repositório para o trabalho de PIA (Parte do Backend)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mabner/pia-portal-take-backend.git"
+  },
+  "author": "Marcos Leite",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mabner/pia-portal-take-backend/issues"
+  },
+  "homepage": "https://github.com/mabner/pia-portal-take-backend#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "mysql2": "^2.2.5",
+    "sequelize": "^6.5.0"
+  },
+  "devDependencies": {
+    "sequelize-cli": "^6.2.0"
+  }
+}
