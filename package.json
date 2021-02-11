@@ -4,7 +4,7 @@
   "description": "Repositório para o trabalho de PIA (Parte do Backend)",
   "main": "index.js",
   "scripts": {
-    "start": "./node_modules/.bin/nodemon --inspect=0.0.0.0:9229 --trace-warnings index.js",
+    "start": "./node_modules/.bin/nodemon --inspect=0.0.0.0:9229 index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
