@@ -1,12 +1,13 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-
+const logger = require('morgan');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const passport = require('passport');
 const { User } = require('./app/models');
 
 const app = express();
-
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+require('./config/github.strategy');
 
 // User.create({
 // 	name: 'Marcos',
@@ -25,6 +26,32 @@ app.use(bodyParser.json());
 // app.get('/', (req, res) => {
 // 	res.send('Portal de Ferramentas para Data&Analytics');
 // });
+const indexRouter = require('./routes/index');
+const loginRouter = require('./routes/login');
+const logoutRouter = require('./routes/logout');
+
+app.use(logger('dev'));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(cookieParser());
+app.use(express.static(path.join(__dirname, 'public')));
+
+// Set passport configs
+app.use(
+	require('express-session')({
+		secret: 'shhhh...',
+		resave: true,
+		saveUninitialized: true,
+	})
+);
+app.use(passport.initialize());
+app.use(passport.session());
+
+
+app.use('/', indexRouter);
+app.use('/login', loginRouter);
+app.use('/logout', logoutRouter);
+
 
 // Cadastra usuário
 app.post('/adduser', async (req, res) => {
@@ -53,4 +80,4 @@ app.delete('/delete/:id', (req, res) => {
 	res.json('Delete a user');
 });
 
-app.listen(3000);
+app.listen(3001);
