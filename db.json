@@ -4,19 +4,22 @@
       "id": 1,
       "name": "IBExpert",
       "description": "SGDB para banco de dados Firebird",
-      "usage": "DBA"
+      "usage": "DBA",
+      "tURL": "https://www.ibexpert.net/ibe/"
     },
     {
       "name": "Postman",
       "description": "Teste de API Rest",
       "usage": "API",
-      "id": 2
+      "id": 2,
+      "tURL": "https://www.postman.com/"
     },
     {
       "name": "SoapUI",
       "description": "Testar webservices REST",
       "usage": "API",
-      "id": 3
+      "id": 3,
+      "tURL": "https://www.soapui.org/"
     }
   ]
 }
