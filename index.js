@@ -2,14 +2,15 @@ require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
 const passport = require('passport');
+const { urlencoded, json } = require('express');
 
 const app = express();
 
 require('./config/github.strategy');
 const port = process.env.PORT;
 
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+app.use(urlencoded({ extended: false }));
+app.use(json());
 
 //const router = require('./controllers/');
 //app.use('/api', router);
