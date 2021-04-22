@@ -1,8 +1,8 @@
 require('dotenv').config();
-import { deserializeUser, serializeUser, use } from 'passport';
-import { Strategy as GitHubStrategy } from 'passport-github2';
+const passport = require('passport');
+const GitHubStrategy = require('passport-github2').Strategy;
 
-use(
+passport.use(
 	new GitHubStrategy(
 		{
 			clientID: process.env.GITHUB_CLIENT_ID,
@@ -15,10 +15,10 @@ use(
 	)
 );
 
-serializeUser(function (user, done) {
+passport.serializeUser(function (user, done) {
 	done(undefined, user);
 });
 
-deserializeUser(function (user, done) {
+passport.deserializeUser(function (user, done) {
 	done(undefined, user);
 });
