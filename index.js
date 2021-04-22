@@ -9,8 +9,28 @@ const app = express();
 require('./config/github.strategy');
 const port = process.env.PORT;
 
+// User routes
+const indexRouter = require('./routes/index');
+const loginRouter = require('./routes/login');
+const logoutRouter = require('./routes/logout');
+
 app.use(urlencoded({ extended: false }));
 app.use(json());
+
+// Set passport configs
+app.use(
+	require('express-session')({
+		secret: 'shhhh...',
+		resave: true,
+		saveUninitialized: true,
+	})
+);
+app.use(passport.initialize());
+app.use(passport.session());
+
+app.use('/', indexRouter);
+app.use('/login', loginRouter);
+app.use('/logout', logoutRouter);
 
 //const router = require('./controllers/');
 //app.use('/api', router);
