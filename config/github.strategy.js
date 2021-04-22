@@ -1,5 +1,5 @@
 require('dotenv').config();
-import { use, serializeUser, deserializeUser } from 'passport';
+import { deserializeUser, serializeUser, use } from 'passport';
 import { Strategy as GitHubStrategy } from 'passport-github2';
 
 use(
